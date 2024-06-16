@@ -1,0 +1,40 @@
+<div class="container mt-4">
+  <h1>Scrapear URLs</h1>
+  <div class="col-12 row">
+    <div class="col-6">
+      <div>
+        <label for="" class="form-label">Ingresa una URL</label>
+        <input [(ngModel)]="urlSave" type="text" class="form-control">
+      </div>
+      <br>
+      <button (click)="save()" [disabled]="!isSaved" class="btn btn-primary">Guardar</button>
+      <button (click)="screapear()" class="btn btn-success mx-2">Scrapear URLs</button>
+      <a href="/support" class="btn btn-secondary">Volver</a>
+    </div>
+
+    <div class="col-6">
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th class="col">Links scrapeadas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <div *ngIf="loading" class="text-center mt-3">
+            <i class="fas fa-spinner fa-spin fa-2x"></i> <!-- Icono de carga de FontAwesome -->
+            <!-- Puedes usar otros iconos o ajustar el estilo según tu preferencia -->
+            <p>Cargando...</p>
+          </div>
+          <tr *ngFor="let web of urlsScrapping">
+            <td>
+              <a [href]="web" target="_blank">
+                {{web}}
+              </a>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,17 @@
+<div id="main">
+  <a href="/">
+    <img id="logo" src="https://static.vecteezy.com/system/resources/thumbnails/007/978/619/small_2x/google-logo-illustration-free-vector.jpg" />
+  </a>
+  <input type="text" id="txtSearch" [(ngModel)]="query" /> &nbsp;
+  <button (click)="search()" class="rounded border-1">Search</button>
+  <hr />
+  <div id="results">
+    <span class="total-results">Página 1 de aproximadamente 4.860.000.000 resultados (0,57 segundos)</span>
+    <div id="links">
+      <div class="result my-2" *ngFor="let wp of webpages">
+        <h6><a [href]="wp.url" target="_blank" >{{wp.title}}</a></h6>
+        <span>{{wp.description}}</span>
+      </div>
+    </div>
+  </div>
+</div>

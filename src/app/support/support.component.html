@@ -1,0 +1,33 @@
+<div class="container mt-4">
+  <div class="row">
+    <a href="/">
+      <img id="logo" width="100" src="https://static.vecteezy.com/system/resources/thumbnails/007/978/619/small_2x/google-logo-illustration-free-vector.jpg" />
+    </a>
+    <h1>Pages List</h1>
+  </div>
+  <a href="/support/form" class="btn btn-primary">Add New Page</a>
+  <table class="table table-bordered mt-3">
+    <thead>
+      <tr>
+        <th style="width: 20%;">URL</th>
+        <th>Title</th>
+        <th>Description</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let page of webpages">
+        <!-- <td>{{ page.url.substring(0, 25) }}...</td> -->
+        <td style="max-width: 200px; word-wrap: break-word;"><a [href]="page.url" target="_blank">{{page.url}}</a></td>
+        <td>{{ page.title }}</td>
+        <td style="max-width: 600px; word-wrap: break-word;">{{ page.description }}</td>
+        <td >
+          <div class="btn-group">
+            <button (click)="disabledPage(page.id)" class="btn btn-danger">Delete</button>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
